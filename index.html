@@ -19,6 +19,8 @@
       --error: #ef4444;
       --white: #ffffff;
       --dark-blue: #1e3a8a;
+      --light-blue: #dbeafe;
+      --green-overlay: #0d7a5f;
     }
 
     * {
@@ -33,6 +35,8 @@
       color: var(--text);
       min-height: 100vh;
       line-height: 1.5;
+      /* Sobre fundo verde */
+      background: linear-gradient(to bottom, var(--green-overlay) 0%, var(--green-overlay) 150px, var(--bg) 150px, var(--bg) 100%);
     }
 
     .container {
@@ -91,13 +95,13 @@
     .form-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
       margin-bottom: 15px;
     }
 
     .form-field {
-      flex: 1;
-      min-width: 200px;
+      display: flex;
+      flex-direction: column;
     }
 
     .form-field label {
@@ -108,30 +112,36 @@
       font-size: 0.9rem;
     }
 
-    /* Ajustes de largura para os campos específicos */
+    /* Ajustes de largura para os campos específicos - REDIMENSIONADOS */
     .form-field:nth-child(1) { /* Nome */
-      flex: 3;
-      min-width: 300px;
+      flex: 4;
+      min-width: 350px;
     }
     
     .form-field:nth-child(2) { /* Série */
-      flex: 1;
-      min-width: 120px;
+      flex: 0.8;
+      min-width: 100px;
     }
     
     .form-field:nth-child(3) { /* Nº */
       flex: 0.5;
-      min-width: 80px;
+      min-width: 70px;
     }
     
     .form-field:nth-child(4) { /* Data */
       flex: 1;
-      min-width: 150px;
+      min-width: 140px;
     }
     
     .form-field:nth-child(5) { /* E-mail */
-      flex: 2;
-      min-width: 250px;
+      flex: 2.5;
+      min-width: 280px;
+    }
+
+    /* Centralização dos campos Nº e SÉRIE */
+    .form-field:nth-child(2) input,
+    .form-field:nth-child(3) input {
+      text-align: center;
     }
 
     .form-field select, .form-field input {
@@ -152,8 +162,8 @@
     }
     
     .form-field select option:nth-child(even) {
-      background-color: var(--dark-blue);
-      color: var(--white);
+      background-color: var(--light-blue);
+      color: var(--dark-blue);
     }
 
     .form-field select:focus, .form-field input:focus {
@@ -268,6 +278,13 @@
     .card-content strong {
       color: white;
       font-weight: bold;
+    }
+
+    /* Estilo para fórmulas em branco e negrito */
+    .card-content .math {
+      color: white;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
     }
 
     .card-images {
@@ -635,7 +652,7 @@
           </div>
           <div>
             <div class="card-title">Velocidade</div>
-            <div class="card-subtitle">v = ΔS / Δt (m/s, km/h)</div>
+            <div class="card-subtitle"><span class="math">v = ΔS / Δt</span> (m/s, km/h)</div>
           </div>
         </div>
         <div class="card-content">
@@ -657,7 +674,7 @@
           </div>
           <div>
             <div class="card-title">Aceleração & Forças</div>
-            <div class="card-subtitle">a = ΔV / Δt — F = m·a</div>
+            <div class="card-subtitle"><span class="math">a = ΔV / Δt</span> — <span class="math">F = m·a</span></div>
           </div>
         </div>
         <div class="card-content">
@@ -679,13 +696,13 @@
           </div>
           <div>
             <div class="card-title">Leis de Newton</div>
-            <div class="card-subtitle">Inércia • F = m·a • Ação e Reação</div>
+            <div class="card-subtitle">Inércia • <span class="math">F = m·a</span> • Ação e Reação</div>
           </div>
         </div>
         <div class="card-content">
           <ul>
             <li><strong>1ª:</strong> Inércia — repouso ou movimento constante.</li>
-            <li><strong>2ª:</strong> F = m·a (unidade: N).</li>
+            <li><strong>2ª:</strong> <span class="math">F = m·a</span> (unidade: N).</li>
             <li><strong>3ª:</strong> Ação e reação são opostas e simultâneas.</li>
           </ul>
         </div>
@@ -907,7 +924,7 @@
         summary: `
           <p><strong>Distância percorrida:</strong> Medida do comprimento total da trajetória percorrida por um corpo. É uma grandeza escalar sempre positiva.</p>
           <p><strong>Deslocamento:</strong> Variação de posição de um corpo, medida em linha reta entre os pontos inicial e final. É uma grandeza vetorial que pode ser positiva, negativa ou zero.</p>
-          <p><strong>Fórmula do deslocamento:</strong> ΔS = S<sub>f</sub> - S<sub>0</sub></p>
+          <p><strong>Fórmula do deslocamento:</strong> <span class="math">ΔS = S<sub>f</sub> - S<sub>0</sub></span></p>
           <p>Onde:</p>
           <ul>
             <li>ΔS = deslocamento</li>
@@ -945,11 +962,11 @@
       },
       "velocidade": {
         title: "Velocidade",
-        subtitle: "v = ΔS / Δt (m/s, km/h)",
+        subtitle: "<span class=\"math\">v = ΔS / Δt</span> (m/s, km/h)",
         summary: `
           <p><strong>Velocidade:</strong> Mede a rapidez com que um corpo se move.</p>
           <p><strong>Velocidade média:</strong> Razão entre o deslocamento e o intervalo de tempo correspondente.</p>
-          <p><strong>Fórmula:</strong> v<sub>m</sub> = ΔS / Δt</p>
+          <p><strong>Fórmula:</strong> <span class="math">v<sub>m</sub> = ΔS / Δt</span></p>
           <p>Onde:</p>
           <ul>
             <li>v<sub>m</sub> = velocidade média</li>
@@ -989,10 +1006,10 @@
       },
       "aceleracao": {
         title: "Aceleração e Forças",
-        subtitle: "a = ΔV / Δt — F = m·a",
+        subtitle: "<span class=\"math\">a = ΔV / Δt</span> — <span class=\"math\">F = m·a</span>",
         summary: `
           <p><strong>Aceleração:</strong> Mede a variação da velocidade com o tempo.</p>
-          <p><strong>Fórmula:</strong> a = ΔV / Δt</p>
+          <p><strong>Fórmula:</strong> <span class="math">a = ΔV / Δt</span></p>
           <p>Onde:</p>
           <ul>
             <li>a = aceleração</li>
@@ -1003,7 +1020,7 @@
           <p><strong>Aceleração positiva:</strong> Quando a velocidade aumenta.</p>
           <p><strong>Aceleração negativa (desaceleração):</strong> Quando a velocidade diminui.</p>
           <p><strong>Força resultante:</strong> Soma de todas as forças que atuam sobre um corpo.</p>
-          <p><strong>Segunda Lei de Newton:</strong> F<sub>res</sub> = m · a</p>
+          <p><strong>Segunda Lei de Newton:</strong> <span class="math">F<sub>res</sub> = m · a</span></p>
           <p>Onde:</p>
           <ul>
             <li>F<sub>res</sub> = força resultante</li>
@@ -1036,10 +1053,10 @@
       },
       "newton": {
         title: "Leis de Newton",
-        subtitle: "Inércia • F = m·a • Ação e Reação",
+        subtitle: "Inércia • <span class=\"math\">F = m·a</span> • Ação e Reação",
         summary: `
           <p><strong>Primeira Lei (Lei da Inércia):</strong> Um corpo em repouso tende a permanecer em repouso, e um corpo em movimento tende a permanecer em movimento com velocidade constante, a menos que uma força resultante atue sobre ele.</p>
-          <p><strong>Segunda Lei (Princípio Fundamental da Dinâmica):</strong> A força resultante aplicada a um corpo é igual ao produto de sua massa pela aceleração adquirida: F<sub>res</sub> = m · a</p>
+          <p><strong>Segunda Lei (Princípio Fundamental da Dinâmica):</strong> A força resultante aplicada a um corpo é igual ao produto de sua massa pela aceleração adquirida: <span class="math">F<sub>res</sub> = m · a</span></p>
           <p><strong>Terceira Lei (Lei da Ação e Reação):</strong> Para toda ação existe uma reação de mesma intensidade, mesma direção e sentido oposto.</p>
           <p><strong>Exemplos:</strong></p>
           <ul>
@@ -1194,7 +1211,7 @@
       
       // Preencher informações do modal
       modalTitle.textContent = content.title;
-      modalSubtitle.textContent = content.subtitle;
+      modalSubtitle.innerHTML = content.subtitle;
       contentSummary.innerHTML = content.summary;
       
       // Limpar questões anteriores
@@ -1312,10 +1329,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
