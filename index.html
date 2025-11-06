@@ -17,6 +17,8 @@
       --success: #10b981;
       --warning: #f59e0b;
       --error: #ef4444;
+      --white: #ffffff;
+      --dark-blue: #1e3a8a;
     }
 
     * {
@@ -122,7 +124,12 @@
       min-width: 80px;
     }
     
-    .form-field:nth-child(4) { /* E-mail */
+    .form-field:nth-child(4) { /* Data */
+      flex: 1;
+      min-width: 150px;
+    }
+    
+    .form-field:nth-child(5) { /* E-mail */
       flex: 2;
       min-width: 250px;
     }
@@ -140,13 +147,13 @@
 
     /* Estilização do dropdown com cores alternadas */
     .form-field select option:nth-child(odd) {
-      background-color: white;
-      color: #0f172a;
+      background-color: var(--white);
+      color: var(--dark-blue);
     }
     
     .form-field select option:nth-child(even) {
-      background-color: #1e3a8a;
-      color: white;
+      background-color: var(--dark-blue);
+      color: var(--white);
     }
 
     .form-field select:focus, .form-field input:focus {
@@ -519,6 +526,11 @@
           </div>
           
           <div class="form-field">
+            <label for="studentDate">DATA:</label>
+            <input type="date" id="studentDate" name="studentDate">
+          </div>
+          
+          <div class="form-field">
             <label for="studentEmail">E-MAIL:</label>
             <input type="email" id="studentEmail" name="studentEmail" readonly>
           </div>
@@ -716,19 +728,349 @@
     </div>
   </div>
 
-  <!-- JavaScript permanece exatamente igual -->
   <script>
     // Dados dos alunos
     const students = [
       // 9ºA
       { name: "ÁGATHA NIKOLLE DA SILVA RAMOS", number: "1", grade: "9ºA", email: "00001153810360SP@al.educacao.sp.gov.br" },
       { name: "AMANDA BEATRIZ LEAL MOURAD", number: "2", grade: "9ºA", email: "00001141420077SP@al.educacao.sp.gov.br" },
-      // ... (restante do código JavaScript permanece igual)
+      { name: "ANNA NICOLY BENVINDO DOS SANTOS", number: "4", grade: "9ºA", email: "00001150804713SP@al.educacao.sp.gov.br" },
+      { name: "ARTHUR DOS SANTOS", number: "5", grade: "9ºA", email: "00001150816685SP@al.educacao.sp.gov.br" },
+      { name: "BEATRIZ UCHOA DOS SANTOS", number: "6", grade: "9ºA", email: "00001142397701SP@al.educacao.sp.gov.br" },
+      { name: "BRUNO EDUARDO NOGUEIRA DE OLIVEIRA", number: "7", grade: "9ºA", email: "00001124742074SP@al.educacao.sp.gov.br" },
+      { name: "CARLOS EDUARDO BELMIRO DOS SANTOS", number: "8", grade: "9ºA", email: "00001141556431SP@al.educacao.sp.gov.br" },
+      { name: "CHRISTIAN DAVI DE OLIVEIRA", number: "9", grade: "9ºA", email: "00001132170254SP@al.educacao.sp.gov.br" },
+      { name: "FILIPE RODRIGUES SANTOS", number: "12", grade: "9ºA", email: "00001141664732SP@al.educacao.sp.gov.br" },
+      { name: "GABRIEL ALMEIDA MOSCARDINI", number: "13", grade: "9ºA", email: "00001141637686SP@al.educacao.sp.gov.br" },
+      { name: "GIOVANA MOTA VAZ DE JESUS", number: "14", grade: "9ºA", email: "00001136857163SP@al.educacao.sp.gov.br" },
+      { name: "GUILHERME DA SILVA GUIMARÃES", number: "15", grade: "9ºA", email: "00001141670793SP@al.educacao.sp.gov.br" },
+      { name: "HELOÍSA LEAL DOS REIS", number: "16", grade: "9ºA", email: "00001141438112SP@al.educacao.sp.gov.br" },
+      { name: "IAGO ANJOS DE JESUS", number: "17", grade: "9ºA", email: "00001103804200SP@al.educacao.sp.gov.br" },
+      { name: "IGNACIO LINS SANTOS", number: "18", grade: "9ºA", email: "00001121685584SP@al.educacao.sp.gov.br" },
+      { name: "ISADORA DE SOUZA SILVA", number: "19", grade: "9ºA", email: "00001141625842SP@al.educacao.sp.gov.br" },
+      { name: "JOAO VICTOR BATISTA DUARTE", number: "20", grade: "9ºA", email: "00001141667009SP@al.educacao.sp.gov.br" },
+      { name: "JULIANA SANTOS LIMA", number: "21", grade: "9ºA", email: "00001122183471SP@al.educacao.sp.gov.br" },
+      { name: "MANUELA VITÓRIA LIMA DOS SANTOS", number: "25", grade: "9ºA", email: "00001150807490SP@al.educacao.sp.gov.br" },
+      { name: "MIGUEL ALVES OLIVEIRA", number: "26", grade: "9ºA", email: "00001214943093SP@al.educacao.sp.gov.br" },
+      { name: "ORIANA JOSE TUAREZ RENGEL", number: "28", grade: "9ºA", email: "00001220177015SP@al.educacao.sp.gov.br" },
+      { name: "RAFAELLA VITÓRIA EXPEDITA DE ANDRADE MARQUES", number: "31", grade: "9ºA", email: "00001135053285SP@al.educacao.sp.gov.br" },
+      { name: "RAYLAN DE JESUS BARBOSA", number: "33", grade: "9ºA", email: "00001219795422SP@al.educacao.sp.gov.br" },
+      { name: "REBECA DOS SANTOS SOUSA", number: "34", grade: "9ºA", email: "00001141526955SP@al.educacao.sp.gov.br" },
+      { name: "RICHARD JOSÉ DOS SANTOS", number: "35", grade: "9ºA", email: "00001150807684SP@al.educacao.sp.gov.br" },
+      { name: "SARA CRISTINA PASSOS MARTINS", number: "36", grade: "9ºA", email: "00001150824657SP@al.educacao.sp.gov.br" },
+      { name: "VANESSA CARDOSO DOS SANTOS", number: "37", grade: "9ºA", email: "00001132203363SP@al.educacao.sp.gov.br" },
+      { name: "JULIA DIAS AZEVEDO", number: "41", grade: "9ºA", email: "00001150834791SP@al.educacao.sp.gov.br" },
+      { name: "SAMARA HELEN DA SILVA", number: "42", grade: "9ºA", email: "00001146791938SP@al.educacao.sp.gov.br" },
+      { name: "LUIS MATHEUS DA SILVA RAMOS", number: "44", grade: "9ºA", email: "00001166676742SP@al.educacao.sp.gov.br" },
+      { name: "FABIO HENRIQUE DA SILVA", number: "46", grade: "9ºA", email: "00001150833610SP@al.educacao.sp.gov.br" },
+      { name: "SOPHIA MIRELLA BRAGA GARCIA", number: "50", grade: "9ºA", email: "0000114440406XSP@al.educacao.sp.gov.br" },
+      
+      // 9ºB
+      { name: "ALEJANDRO VIEIRA LIMA", number: "1", grade: "9ºB", email: "00001239445593SP@al.educacao.sp.gov.br" },
+      { name: "ALEX GUSTAVO DA SILVA VIEIRA", number: "2", grade: "9ºB", email: "00001117892906SP@al.educacao.sp.gov.br" },
+      { name: "ALLAN BEZERRA DE LIMA", number: "3", grade: "9ºB", email: "00001150817495SP@al.educacao.sp.gov.br" },
+      { name: "ARTHUR MARYANO MENDES", number: "8", grade: "9ºB", email: "00001132088598SP@al.educacao.sp.gov.br" },
+      { name: "CARLOS EDUARDO OLIVEIRA SABATERRA", number: "9", grade: "9ºB", email: "00001141561153SP@al.educacao.sp.gov.br" },
+      { name: "EDUARDA DE SOUSA OLIVEIRA", number: "13", grade: "9ºB", email: "0000114164034XSP@al.educacao.sp.gov.br" },
+      { name: "GIOVANNA MARTINEZ FERREIRA", number: "16", grade: "9ºB", email: "00001141622580SP@al.educacao.sp.gov.br" },
+      { name: "GRAZIELLE VITÓRIA SILVA FIGUEIREDO", number: "17", grade: "9ºB", email: "00001142706631SP@al.educacao.sp.gov.br" },
+      { name: "KARINA DE JESUS SANTANA", number: "21", grade: "9ºB", email: "00001150807441SP@al.educacao.sp.gov.br" },
+      { name: "LEONARDO JUNIOR ALBUQUERQUE DA SILVA", number: "24", grade: "9ºB", email: "0000113213383XSP@al.educacao.sp.gov.br" },
+      { name: "MARCOS DE OLIVEIRA CARVALHO", number: "27", grade: "9ºB", email: "0000115080743XSP@al.educacao.sp.gov.br" },
+      { name: "MARIA EDUARDA SILVA SOUZA", number: "28", grade: "9ºB", email: "00001142591086SP@al.educacao.sp.gov.br" },
+      { name: "MOISES DOS SANTOS BOMFIM", number: "29", grade: "9ºB", email: "00001214824857SP@al.educacao.sp.gov.br" },
+      { name: "NAHYMÊ VITORIA TAVARES DOS SANTOS", number: "30", grade: "9ºB", email: "00001142553541SP@al.educacao.sp.gov.br" },
+      { name: "NICOLAS LUAN MENDES", number: "31", grade: "9ºB", email: "00001141467720SP@al.educacao.sp.gov.br" },
+      { name: "PEDRO HENRIQUE ARRABAL MANZARO", number: "32", grade: "9ºB", email: "00001122269080SP@al.educacao.sp.gov.br" },
+      { name: "PIETRO RAMON DE PAIVA MAGALHÃES LEITÃO", number: "33", grade: "9ºB", email: "00001150826952SP@al.educacao.sp.gov.br" },
+      { name: "TATIANA DA SILVA RODRIGUES", number: "35", grade: "9ºB", email: "00001130311806SP@al.educacao.sp.gov.br" },
+      { name: "VITOR HUGO DOMINGOS SANTOS", number: "36", grade: "9ºB", email: "0000115080757XSP@al.educacao.sp.gov.br" },
+      { name: "WAGNER SILVA MEIRA", number: "37", grade: "9ºB", email: "00001158917491SP@al.educacao.sp.gov.br" },
+      { name: "YASMIM ANDRADE DOS SANTOS", number: "38", grade: "9ºB", email: "00001150833555SP@al.educacao.sp.gov.br" },
+      { name: "JULIA BARBOSA DA SILVA", number: "39", grade: "9ºB", email: "0000114159982XSP@al.educacao.sp.gov.br" },
+      { name: "MIGUEL ANGEL NINA QUISPE", number: "41", grade: "9ºB", email: "00001250883908sp@al.educacao.sp.gov.br" },
+      { name: "FILIPE ANDRADE DE LIMA", number: "42", grade: "9ºB", email: "00001150830219SP@al.educacao.sp.gov.br" },
+      { name: "PEDRO HENRIQUE QUEIROZ DE JESUS", number: "43", grade: "9ºB", email: "00001150819960SP@al.educacao.sp.gov.br" },
+      { name: "ANDREY FELIPE ALVES DOS SANTOS", number: "44", grade: "9ºB", email: "00001260850857sp@al.educacao.sp.gov.br" },
+      { name: "CAROLINE ABADE DOS SANTOS", number: "45", grade: "9ºB", email: "00001138244533SP@al.educacao.sp.gov.br" },
+      
+      // 9ºC
+      { name: "ALEXANDRE SERAFIM JUNIOR", number: "2", grade: "9ºC", email: "00001141563526SP@al.educacao.sp.gov.br" },
+      { name: "ANA LUIZA DO NASCIMENTO", number: "3", grade: "9ºC", email: "00001132074691SP@al.educacao.sp.gov.br" },
+      { name: "ARTHUR EMANUEL ALMEIDA REIS", number: "5", grade: "9ºC", email: "00001141451086SP@al.educacao.sp.gov.br" },
+      { name: "CARLOS AUGUSTO DIAS DE MENDONÇA", number: "7", grade: "9ºC", email: "00001214847985SP@al.educacao.sp.gov.br" },
+      { name: "DAPHINE SINDIFER RODRIGUES SILVA", number: "9", grade: "9ºC", email: "00001122250216SP@al.educacao.sp.gov.br" },
+      { name: "ELOISA DE OLIVEIRA CARVALHO", number: "12", grade: "9ºC", email: "00001132082766SP@al.educacao.sp.gov.br" },
+      { name: "ENZO BAPTISTA MAIA", number: "13", grade: "9ºC", email: "00001132124955SP@al.educacao.sp.gov.br" },
+      { name: "EVELLYN ANGELINA CAVALCANTE DE OLIVEIRA", number: "14", grade: "9ºC", email: "0000115082038XSP@al.educacao.sp.gov.br" },
+      { name: "GABRIEL VICTOR OLIVEIRA SANTOS", number: "16", grade: "9ºC", email: "0000115080466XSP@al.educacao.sp.gov.br" },
+      { name: "GIOVANNA SOUSA DA SILVA", number: "17", grade: "9ºC", email: "00001150807556SP@al.educacao.sp.gov.br" },
+      { name: "GUSTAVO FURLAN GUEDES DA SILVA", number: "18", grade: "9ºC", email: "00001150860224SP@al.educacao.sp.gov.br" },
+      { name: "KAUÃ BRYAN MAZARIO BARBEIRO", number: "23", grade: "9ºC", email: "00001158834536SP@al.educacao.sp.gov.br" },
+      { name: "KAUAN ALAMBERT GOMES DE SOUSA", number: "25", grade: "9ºC", email: "00001146555131SP@al.educacao.sp.gov.br" },
+      { name: "KEMILLY CARVALHO DA FONSECA BRITO", number: "26", grade: "9ºC", email: "0000113220270XSP@al.educacao.sp.gov.br" },
+      { name: "KLAIVYN WALLAS ARAUJO ESPIRITO SANTO", number: "27", grade: "9ºC", email: "00001120320379SP@al.educacao.sp.gov.br" },
+      { name: "LORHANNY CAVALCANTE SANTOS", number: "28", grade: "9ºC", email: "00001142594865SP@al.educacao.sp.gov.br" },
+      { name: "MANUELLA LELIS DA SILVA SIMAO", number: "29", grade: "9ºC", email: "0000114156063XSP@al.educacao.sp.gov.br" },
+      { name: "MONALISA DOS SANTOS BALDUINO", number: "33", grade: "9ºC", email: "00001150815085SP@al.educacao.sp.gov.br" },
+      { name: "NATHAN SANTANA MONTEMOR", number: "34", grade: "9ºC", email: "00001142693041SP@al.educacao.sp.gov.br" },
+      { name: "NICOLAS PYETRO CASTRO DE ALMEIDA SOUZA", number: "35", grade: "9ºC", email: "00001141676242SP@al.educacao.sp.gov.br" },
+      { name: "NICOLLAS JHAMAL DA SILVA ALVES", number: "36", grade: "9ºC", email: "00001150804464SP@al.educacao.sp.gov.br" },
+      { name: "SARAH SILVA ROGER", number: "37", grade: "9ºC", email: "00001142610329SP@al.educacao.sp.gov.br" },
+      { name: "SERGIO RICARDO SILVA DE SOUZA", number: "38", grade: "9ºC", email: "00001158905725SP@al.educacao.sp.gov.br" },
+      { name: "VINICIUS COSTA SILVA", number: "40", grade: "9ºC", email: "00001154566146SP@al.educacao.sp.gov.br" },
+      { name: "VITÓRIA SILVA VIEIRA", number: "41", grade: "9ºC", email: "00001132204501SP@al.educacao.sp.gov.br" },
+      { name: "FELIPE RITIELLI NEVES DA SILVA", number: "42", grade: "9ºC", email: "00001136033257SP@al.educacao.sp.gov.br" },
+      { name: "JAQUELYNE PEREIRA GONCALVES", number: "43", grade: "9ºC", email: "00001150804762SP@al.educacao.sp.gov.br" },
+      { name: "KRYSTOFER LEITE DA SILVA", number: "44", grade: "9ºC", email: "00001120291975SP@al.educacao.sp.gov.br" },
+      { name: "GUSTAVO LOPES DE MENEZES DA SILVA", number: "45", grade: "9ºC", email: "0000114259242XSP@al.educacao.sp.gov.br" },
+      { name: "ANNA JULYA SILVA MELO", number: "46", grade: "9ºC", email: "00001132160686SP@al.educacao.sp.gov.br" }
     ];
 
-    // Conteúdo e questões para cada card
+    // Conteúdo e questões para cada card (melhoradas e contextualizadas)
     const cardContent = {
-      // ... (conteúdo permanece igual)
+      "historia": {
+        title: "História do Conceito de Movimento",
+        subtitle: "De Aristóteles a Galileu",
+        summary: `
+          <p>A compreensão do movimento evoluiu ao longo dos séculos:</p>
+          <ul>
+            <li><strong>Aristóteles (384-322 a.C.):</strong> Distinguiu entre movimento natural (em direção ao lugar natural) e movimento violento (causado por forças externas). Baseou-se na teoria dos quatro elementos (terra, água, ar, fogo).</li>
+            <li><strong>Ptolomeu (100-170 d.C.):</strong> Desenvolveu o modelo geocêntrico, com a Terra no centro do universo.</li>
+            <li><strong>Jean Buridan (1295-1358):</strong> Propôs a teoria do ímpeto, uma força interna que mantinha os corpos em movimento.</li>
+            <li><strong>Galileu Galilei (1564-1642):</strong> Realizou experimentos que refutaram as ideias de Aristóteles, mostrando que objetos de massas diferentes caem com a mesma aceleração e que um corpo em movimento tende a permanecer em movimento (princípio da inércia).</li>
+          </ul>
+        `,
+        questions: [
+          {
+            question: "Imagine que você é um filósofo na Grécia Antiga seguindo as ideias de Aristóteles. Se você soltar uma pedra e uma pena da mesma altura, qual seria sua explicação para a pedra chegar ao chão primeiro?",
+            options: [
+              "A pedra tem mais ímpeto do que a pena",
+              "A pedra tem maior tendência a retornar ao seu lugar natural (a Terra)",
+              "A pena sofre mais resistência do ar devido ao seu formato",
+              "A pedra possui maior velocidade instantânea"
+            ],
+            correct: 1
+          },
+          {
+            question: "Galileu revolucionou o estudo do movimento ao introduzir o método experimental. Qual das seguintes situações melhor ilustra sua principal descoberta sobre a queda dos corpos?",
+            options: [
+              "Objetos mais pesados sempre caem mais rápido que objetos leves",
+              "Na ausência de resistência do ar, todos os objetos caem com a mesma aceleração",
+              "A velocidade de queda é proporcional ao peso do objeto",
+              "O movimento de queda é sempre uniforme e constante"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      "cinematica": {
+        title: "Cinemática",
+        subtitle: "Trajetória, posição e referencial",
+        summary: `
+          <p>A cinemática é o ramo da física que estuda o movimento sem considerar suas causas.</p>
+          <p><strong>Conceitos fundamentais:</strong></p>
+          <ul>
+            <li><strong>Referencial:</strong> Sistema de coordenadas escolhido para descrever o movimento. Um corpo pode estar em movimento ou repouso dependendo do referencial adotado.</li>
+            <li><strong>Posição:</strong> Localização de um corpo em relação a um referencial.</li>
+            <li><strong>Trajetória:</strong> Conjunto de posições sucessivas ocupadas por um corpo durante seu movimento.</li>
+            <li><strong>Ponto material:</strong> Corpo cujas dimensões são desprezíveis em relação às dimensões do fenômeno estudado.</li>
+            <li><strong>Corpo extenso:</strong> Corpo cujas dimensões não podem ser desprezadas.</li>
+          </ul>
+        `,
+        questions: [
+          {
+            question: "Você está sentado em um ônibus em movimento. Do ponto de vista de um pedestre na calçada, você está em movimento. Mas em relação ao banco do ônibus, você está em repouso. Esta diferença na descrição do movimento ocorre porque:",
+            options: [
+              "A velocidade do ônibus está variando",
+              "O movimento depende da trajetória descrita",
+              "Foram utilizados referenciais diferentes",
+              "A posição relativa ao banco não mudou"
+            ],
+            correct: 2
+          },
+          {
+            question: "Um avião comercial em voo de São Paulo ao Rio de Janeiro pode ser considerado um ponto material quando analisamos:",
+            options: [
+              "O movimento das asas durante uma turbulência",
+              "O deslocamento entre as duas cidades em um mapa",
+              "A rotação das turbinas durante o pouso",
+              "A acomodação dos passageiros nos assentos"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      "dist-desloc": {
+        title: "Distância e Deslocamento",
+        subtitle: "Espaço percorrido vs variação de posição",
+        summary: `
+          <p><strong>Distância percorrida:</strong> Medida do comprimento total da trajetória percorrida por um corpo. É uma grandeza escalar sempre positiva.</p>
+          <p><strong>Deslocamento:</strong> Variação de posição de um corpo, medida em linha reta entre os pontos inicial e final. É uma grandeza vetorial que pode ser positiva, negativa ou zero.</p>
+          <p><strong>Fórmula do deslocamento:</strong> ΔS = S<sub>f</sub> - S<sub>0</sub></p>
+          <p>Onde:</p>
+          <ul>
+            <li>ΔS = deslocamento</li>
+            <li>S<sub>f</sub> = posição final</li>
+            <li>S<sub>0</sub> = posição inicial</li>
+          </ul>
+          <p><strong>Exemplo:</strong> Se uma pessoa caminha 100m para o leste e depois 50m para o oeste:</p>
+          <ul>
+            <li>Distância percorrida: 150m</li>
+            <li>Deslocamento: 50m para o leste</li>
+          </ul>
+        `,
+        questions: [
+          {
+            question: "Um entregador de pizza sai da pizzaria, entrega um pedido em um local 3km ao norte, depois outro 4km ao leste, e retorna à pizzaria pelo caminho mais curto. Qual foi a distância total percorrida e o deslocamento final?",
+            options: [
+              "Distância: 12km, Deslocamento: 0km",
+              "Distância: 14km, Deslocamento: 5km",
+              "Distância: 10km, Deslocamento: 7km",
+              "Distância: 7km, Deslocamento: 0km"
+            ],
+            correct: 0
+          },
+          {
+            question: "Um carro percorre uma pista circular de 400m de comprimento e completa uma volta. Considerando que ele parte de um ponto A e retorna ao mesmo ponto A, podemos afirmar que:",
+            options: [
+              "A distância percorrida é 400m e o deslocamento é 400m",
+              "A distância percorrida é 400m e o deslocamento é 0m",
+              "A distância percorrida é 0m e o deslocamento é 400m",
+              "A distância percorrida é 0m e o deslocamento é 0m"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      "velocidade": {
+        title: "Velocidade",
+        subtitle: "v = ΔS / Δt (m/s, km/h)",
+        summary: `
+          <p><strong>Velocidade:</strong> Mede a rapidez com que um corpo se move.</p>
+          <p><strong>Velocidade média:</strong> Razão entre o deslocamento e o intervalo de tempo correspondente.</p>
+          <p><strong>Fórmula:</strong> v<sub>m</sub> = ΔS / Δt</p>
+          <p>Onde:</p>
+          <ul>
+            <li>v<sub>m</sub> = velocidade média</li>
+            <li>ΔS = deslocamento</li>
+            <li>Δt = intervalo de tempo</li>
+          </ul>
+          <p><strong>Unidades de medida:</strong></p>
+          <ul>
+            <li>Sistema Internacional: m/s (metros por segundo)</li>
+            <li>Uso comum: km/h (quilômetros por hora)</li>
+          </ul>
+          <p><strong>Conversão:</strong> 1 m/s = 3,6 km/h</p>
+          <p><strong>Velocidade instantânea:</strong> Velocidade em um instante específico, medida por um velocímetro, por exemplo.</p>
+        `,
+        questions: [
+          {
+            question: "Um motorista percorre 30km em 30 minutos em uma estrada, mas precisa fazer um desvio que aumenta seu percurso em 10km, levando mais 15 minutos. Qual é sua velocidade média durante todo o trajeto?",
+            options: [
+              "50 km/h",
+              "60 km/h",
+              "53,3 km/h",
+              "48 km/h"
+            ],
+            correct: 2
+          },
+          {
+            question: "Você está observando o velocímetro de um carro em uma estrada. Em um determinado momento, ele marca 80 km/h. Esta medida representa:",
+            options: [
+              "A velocidade média do carro desde a partida",
+              "A velocidade instantânea naquele momento",
+              "A velocidade máxima que o carro pode atingir",
+              "A velocidade relativa ao centro da Terra"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      "aceleracao": {
+        title: "Aceleração e Forças",
+        subtitle: "a = ΔV / Δt — F = m·a",
+        summary: `
+          <p><strong>Aceleração:</strong> Mede a variação da velocidade com o tempo.</p>
+          <p><strong>Fórmula:</strong> a = ΔV / Δt</p>
+          <p>Onde:</p>
+          <ul>
+            <li>a = aceleração</li>
+            <li>ΔV = variação de velocidade</li>
+            <li>Δt = intervalo de tempo</li>
+          </ul>
+          <p><strong>Unidade no SI:</strong> m/s² (metros por segundo ao quadrado)</p>
+          <p><strong>Aceleração positiva:</strong> Quando a velocidade aumenta.</p>
+          <p><strong>Aceleração negativa (desaceleração):</strong> Quando a velocidade diminui.</p>
+          <p><strong>Força resultante:</strong> Soma de todas as forças que atuam sobre um corpo.</p>
+          <p><strong>Segunda Lei de Newton:</strong> F<sub>res</sub> = m · a</p>
+          <p>Onde:</p>
+          <ul>
+            <li>F<sub>res</sub> = força resultante</li>
+            <li>m = massa</li>
+            <li>a = aceleração</li>
+          </ul>
+        `,
+        questions: [
+          {
+            question: "Um carro de Fórmula 1 parte do repouso e atinge 100 km/h em 2,5 segundos. Qual é aproximadamente sua aceleração média em m/s²?",
+            options: [
+              "5 m/s²",
+              "11 m/s²",
+              "20 m/s²",
+              "40 m/s²"
+            ],
+            correct: 1
+          },
+          {
+            question: "Dois blocos idênticos são puxados sobre uma superfície sem atrito. No primeiro caso, aplica-se uma força F, resultando em uma aceleração a. No segundo caso, aplica-se uma força 2F. O que acontece com a aceleração?",
+            options: [
+              "Permanece a mesma (a)",
+              "Diminui pela metade (a/2)",
+              "Dobra (2a)",
+              "Quadruplica (4a)"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      "newton": {
+        title: "Leis de Newton",
+        subtitle: "Inércia • F = m·a • Ação e Reação",
+        summary: `
+          <p><strong>Primeira Lei (Lei da Inércia):</strong> Um corpo em repouso tende a permanecer em repouso, e um corpo em movimento tende a permanecer em movimento com velocidade constante, a menos que uma força resultante atue sobre ele.</p>
+          <p><strong>Segunda Lei (Princípio Fundamental da Dinâmica):</strong> A força resultante aplicada a um corpo é igual ao produto de sua massa pela aceleração adquirida: F<sub>res</sub> = m · a</p>
+          <p><strong>Terceira Lei (Lei da Ação e Reação):</strong> Para toda ação existe uma reação de mesma intensidade, mesma direção e sentido oposto.</p>
+          <p><strong>Exemplos:</strong></p>
+          <ul>
+            <li><strong>Primeira Lei:</strong> Quando um ônibus freia bruscamente, os passageiros são lançados para frente.</li>
+            <li><strong>Segunda Lei:</strong> Quanto maior a força aplicada a um objeto, maior sua aceleração (se a massa for constante).</li>
+            <li><strong>Terceira Lei:</strong> Ao nadar, empurramos a água para trás (ação) e a água nos empurra para frente (reação).</li>
+          </ul>
+        `,
+        questions: [
+          {
+            question: "Quando um carro faz uma curva fechada, os passageiros são 'jogados' para o lado oposto ao da curva. Este fenômeno é uma consequência direta:",
+            options: [
+              "Da Segunda Lei de Newton (F = m·a)",
+              "Da Lei da Inércia (Primeira Lei de Newton)",
+              "Da Lei da Ação e Reação (Terceira Lei de Newton)",
+              "Do Princípio de Conservação de Energia"
+            ],
+            correct: 1
+          },
+          {
+            question: "Um astronauta no espaço empurra uma nave com uma determinada força. Considerando a Terceira Lei de Newton, o que acontece com o astronauta?",
+            options: [
+              "Ele permanece exatamente no mesmo lugar",
+              "Ele é empurrado na mesma direção da nave",
+              "Ele é empurrado na direção oposta à nave",
+              "Ele gira em torno de seu próprio eixo"
+            ],
+            correct: 2
+          }
+        ]
+      }
     };
 
     // Elementos do DOM
@@ -743,6 +1085,7 @@
     const studentNameSelect = document.getElementById('studentName');
     const studentNumberInput = document.getElementById('studentNumber');
     const studentGradeInput = document.getElementById('studentGrade');
+    const studentDateInput = document.getElementById('studentDate');
     const studentEmailInput = document.getElementById('studentEmail');
 
     // ID da planilha do Google Sheets
@@ -760,6 +1103,10 @@
       setupCardListeners();
       setupModalListeners();
       setupFormListener();
+      
+      // Definir data atual como padrão
+      const today = new Date();
+      studentDateInput.value = today.toISOString().split('T')[0];
     });
 
     // Preencher dropdown com nomes dos alunos
@@ -920,6 +1267,7 @@
       const studentNumber = studentNumberInput.value;
       const studentGrade = studentGradeInput.value;
       const studentEmail = studentEmailInput.value;
+      const studentDate = studentDateInput.value;
       const topic = cardContent[currentCardId].title;
       const timestamp = new Date().toISOString();
       
@@ -929,6 +1277,7 @@
         number: studentNumber,
         grade: studentGrade,
         email: studentEmail,
+        date: studentDate,
         score: score,
         topic: topic,
         timestamp: timestamp
