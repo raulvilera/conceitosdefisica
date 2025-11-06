@@ -732,7 +732,7 @@
         </div>
         
         <div class="quiz-section">
-          <h3 class="quiz-title">Questões sobre o tema (10 pontos)</h3>
+          <h3 class="quiz-title">Questões sobre o tema (10 pontos no total)</h3>
           <form id="quizForm">
             <div id="questionsContainer">
               <!-- As questões serão inseridas aqui -->
@@ -867,7 +867,8 @@
               "A pena sofre mais resistência do ar devido ao seu formato",
               "A pedra possui maior velocidade instantânea"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           },
           {
             question: "Galileu revolucionou o estudo do movimento ao introduzir o método experimental. Qual das seguintes situações melhor ilustra sua principal descoberta sobre a queda dos corpos?",
@@ -877,7 +878,8 @@
               "A velocidade de queda é proporcional ao peso do objeto",
               "O movimento de queda é sempre uniforme e constante"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           }
         ]
       },
@@ -904,7 +906,8 @@
               "Foram utilizados referenciais diferentes",
               "A posição relativa ao banco não mudou"
             ],
-            correct: 2
+            correct: 2,
+            points: 1.67
           },
           {
             question: "Um avião comercial em voo de São Paulo ao Rio de Janeiro pode ser considerado um ponto material quando analisamos:",
@@ -914,7 +917,8 @@
               "A rotação das turbinas durante o pouso",
               "A acomodação dos passageiros nos assentos"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           }
         ]
       },
@@ -946,7 +950,8 @@
               "Distância: 10km, Deslocamento: 7km",
               "Distância: 7km, Deslocamento: 0km"
             ],
-            correct: 0
+            correct: 0,
+            points: 1.67
           },
           {
             question: "Um carro percorre uma pista circular de 400m de comprimento e completa uma volta. Considerando que ele parte de um ponto A e retorna ao mesmo ponto A, podemos afirmar que:",
@@ -956,7 +961,8 @@
               "A distância percorrida é 0m e o deslocamento é 400m",
               "A distância percorrida é 0m e o deslocamento é 0m"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           }
         ]
       },
@@ -990,7 +996,8 @@
               "53,3 km/h",
               "48 km/h"
             ],
-            correct: 2
+            correct: 2,
+            points: 1.67
           },
           {
             question: "Você está observando o velocímetro de um carro em uma estrada. Em um determinado momento, ele marca 80 km/h. Esta medida representa:",
@@ -1000,7 +1007,8 @@
               "A velocidade máxima que o carro pode atingir",
               "A velocidade relativa ao centro da Terra"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           }
         ]
       },
@@ -1037,7 +1045,8 @@
               "20 m/s²",
               "40 m/s²"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           },
           {
             question: "Dois blocos idênticos são puxados sobre uma superfície sem atrito. No primeiro caso, aplica-se uma força F, resultando em uma aceleração a. No segundo caso, aplica-se uma força 2F. O que acontece com a aceleração?",
@@ -1047,7 +1056,8 @@
               "Dobra (2a)",
               "Quadruplica (4a)"
             ],
-            correct: 2
+            correct: 2,
+            points: 1.67
           }
         ]
       },
@@ -1074,7 +1084,8 @@
               "Da Lei da Ação e Reação (Terceira Lei de Newton)",
               "Do Princípio de Conservação de Energia"
             ],
-            correct: 1
+            correct: 1,
+            points: 1.67
           },
           {
             question: "Um astronauta no espaço empurra uma nave com uma determinada força. Considerando a Terceira Lei de Newton, o que acontece com o astronauta?",
@@ -1084,7 +1095,8 @@
               "Ele é empurrado na direção oposta à nave",
               "Ele gira em torno de seu próprio eixo"
             ],
-            correct: 2
+            correct: 2,
+            points: 1.67
           }
         ]
       }
@@ -1222,7 +1234,7 @@
         const questionElement = document.createElement('div');
         questionElement.className = 'question';
         questionElement.innerHTML = `
-          <p class="question-text">${index + 1}. ${question.question}</p>
+          <p class="question-text">${index + 1}. ${question.question} <span style="color: var(--primary-light); font-size: 0.9rem;">(${question.points} pontos)</span></p>
           <div class="options">
             ${question.options.map((option, optIndex) => `
               <label class="option">
@@ -1265,16 +1277,17 @@
         const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
         
         if (selectedOption && parseInt(selectedOption.value) === question.correct) {
-          score += 5; // Cada questão vale 5 pontos
+          score += question.points;
         }
       });
       
       // Exibir pontuação
-      scoreDisplay.textContent = `Pontuação: ${score}/10`;
-      scoreDisplay.style.color = score >= 7 ? 'var(--success)' : 'var(--error)';
+      const roundedScore = Math.round(score * 100) / 100;
+      scoreDisplay.textContent = `Pontuação: ${roundedScore}/10`;
+      scoreDisplay.style.color = roundedScore >= 7 ? 'var(--success)' : 'var(--error)';
       
       // Enviar dados para o Google Sheets
-      sendDataToGoogleSheets(score);
+      sendDataToGoogleSheets(roundedScore);
     }
 
     // Enviar dados para o Google Sheets via Google Apps Script
@@ -1329,6 +1342,3 @@
   </script>
 </body>
 </html>
-
-
-
