@@ -20,7 +20,6 @@
       --white: #ffffff;
       --dark-blue: #1e3a8a;
       --light-blue: #dbeafe;
-      --green-overlay: #0d7a5f;
     }
 
     * {
@@ -35,8 +34,6 @@
       color: var(--text);
       min-height: 100vh;
       line-height: 1.5;
-      /* Sobre fundo verde */
-      background: linear-gradient(to bottom, var(--green-overlay) 0%, var(--green-overlay) 150px, var(--bg) 150px, var(--bg) 100%);
     }
 
     .container {
@@ -72,6 +69,7 @@
       border: 1px solid rgba(37, 99, 235, 0.1);
       position: relative;
       overflow: hidden;
+      border-bottom: 4px solid var(--white);
     }
 
     .student-form::before {
@@ -145,7 +143,7 @@
     }
 
     .form-field select, .form-field input {
-      width: 100%;
+      width: 100;
       padding: 12px 14px;
       border: 1px solid #334155;
       border-radius: 8px;
@@ -200,6 +198,7 @@
       position: relative;
       overflow: hidden;
       transform: translateY(0);
+      border-bottom: 4px solid var(--white);
     }
 
     .card::after {
@@ -420,6 +419,18 @@
       color: white;
     }
 
+    .question-image {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .question-image img {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
     .options {
       display: flex;
       flex-direction: column;
@@ -578,11 +589,12 @@
           </div>
         </div>
         <div class="card-content">
+          <p><strong>Resumo por tópicos:</strong></p>
           <ul>
-            <li><strong>Aristóteles:</strong> movimento natural e violento.</li>
-            <li><strong>Ptolomeu:</strong> modelo geocêntrico.</li>
-            <li><strong>Buridan:</strong> teoria do ímpeto.</li>
-            <li><strong>Galileu:</strong> método experimental e princípio da inércia.</li>
+            <li><strong>Aristóteles:</strong> movimento natural e violento</li>
+            <li><strong>Ptolomeu:</strong> modelo geocêntrico</li>
+            <li><strong>Buridan:</strong> teoria do ímpeto</li>
+            <li><strong>Galileu:</strong> método experimental e princípio da inércia</li>
           </ul>
         </div>
         <div class="card-images">
@@ -605,6 +617,7 @@
           </div>
         </div>
         <div class="card-content">
+          <p><strong>Resumo por tópicos:</strong></p>
           <p>Estuda o movimento sem considerar suas causas.</p>
           <ul>
             <li>Referencial e posição</li>
@@ -618,7 +631,35 @@
         </div>
       </article>
 
-      <!-- Card 3: Distância e Deslocamento -->
+      <!-- Card 3: Mapa Conceitual - Conceitos Fundamentais -->
+      <article class="card" id="mapa-conceitual">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">Mapa Conceitual</div>
+            <div class="card-subtitle">Conceitos Fundamentais</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <p><strong>Relações entre conceitos:</strong></p>
+          <ul>
+            <li><strong>Movimento:</strong> Conceito central</li>
+            <li><strong>Cinemática:</strong> Descreve o movimento</li>
+            <li><strong>Dinâmica:</strong> Explica as causas do movimento</li>
+            <li><strong>Referencial:</strong> Base para análise</li>
+            <li><strong>Trajetória:</strong> Caminho do movimento</li>
+          </ul>
+        </div>
+        <div class="card-images">
+          <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrL045twSTsa8urMG05bJDi_0dfoXaXiIIluR8KkXzkMoHxOytSYjPRT-huiuYt2Dqz_nDzrX6IUgrkEk1dJpxxI7UfmKmMu7BYGPLzHaXOYuYNhyphenhyphenHei_IBkjYcnbQWcJYUVTWk8xYFSnR6Pw4dVPgjoM23afS2oZjdp2996fOFsGTvQQQjrcwUXeyhO3n/s318/Velocimetro.jpeg" alt="Conceitos fundamentais"></div>
+        </div>
+      </article>
+
+      <!-- Card 4: Distância e Deslocamento -->
       <article class="card" id="dist-desloc">
         <div class="card-header">
           <div class="card-icon">
@@ -632,17 +673,23 @@
           </div>
         </div>
         <div class="card-content">
+          <p><strong>Resumo por tópicos:</strong></p>
           <p>
             Distância: caminho total.  
             Deslocamento: diferença entre posição final e inicial <span class="math">ΔS = Sf - S0</span>.
           </p>
+          <ul>
+            <li><strong>Distância:</strong> Grandeza escalar</li>
+            <li><strong>Deslocamento:</strong> Grandeza vetorial</li>
+            <li><strong>ΔS:</strong> Variação de posição</li>
+          </ul>
         </div>
         <div class="card-images">
           <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmDtdrUswZ5ueumO3-5htEdtD-05AQEv6nN5MNkyMF-PpZSlolw7uwHch4Z60Bs9Uv2-4UiV3oAsmi6uQU72OuHN7oxv0xUj76wmdEac0dwkRPMCUT9s8WuKFN1vqKE6h8ZEwPLEpCK3EYMnW8JCwP-lxL_Gw-cVAKckr1nJowPpSyeA-HSc24BascyHdg/s645/Deslocamento.JPG" alt="Vetor deslocamento"></div>
         </div>
       </article>
 
-      <!-- Card 4: Velocidade -->
+      <!-- Card 5: Velocidade -->
       <article class="card" id="velocidade">
         <div class="card-header">
           <div class="card-icon">
@@ -656,15 +703,49 @@
           </div>
         </div>
         <div class="card-content">
+          <p><strong>Resumo por tópicos:</strong></p>
           <p>Velocidade média: razão entre deslocamento e tempo.</p>
           <p>Velocidade instantânea: velocidade em um momento específico.</p>
+          <ul>
+            <li><strong>Velocidade média:</strong> <span class="math">v<sub>m</sub> = ΔS/Δt</span></li>
+            <li><strong>Velocidade instantânea:</strong> Valor em um instante</li>
+            <li><strong>Conversão:</strong> 1 m/s = 3,6 km/h</li>
+          </ul>
         </div>
         <div class="card-images">
           <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrL045twSTsa8urMG05bJDi_0dfoXaXiIIluR8KkXzkMoHxOytSYjPRT-huiuYt2Dqz_nDzrX6IUgrkEk1dJpxxI7UfmKmMu7BYGPLzHaXOYuYNhyphenhyphenHei_IBkjYcnbQWcJYUVTWk8xYFSnR6Pw4dVPgjoM23afS2oZjdp2996fOFsGTvQQQjrcwUXeyhO3n/s318/Velocimetro.jpeg" alt="Gráfico velocidade x tempo"></div>
         </div>
       </article>
 
-      <!-- Card 5: Aceleração -->
+      <!-- Card 6: Mapa Conceitual - Velocidade e Aceleração -->
+      <article class="card" id="mapa-vel-acel">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">Mapa Conceitual</div>
+            <div class="card-subtitle">Velocidade e Aceleração</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <p><strong>Relações entre conceitos:</strong></p>
+          <ul>
+            <li><strong>Velocidade:</strong> Variação da posição</li>
+            <li><strong>Aceleração:</strong> Variação da velocidade</li>
+            <li><strong>MRU:</strong> Velocidade constante</li>
+            <li><strong>MRUV:</strong> Aceleração constante</li>
+            <li><strong>Força:</strong> Causa da aceleração</li>
+          </ul>
+        </div>
+        <div class="card-images">
+          <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqaUmu6HAVtxFHa8IdF6y_lqR_zEXa3Ylyueg3h6Z3Vgw08kxG_FCawR-dxpgAyjKnwEORR1CP3Mm2R4g3p5egq23CdsQv-XzUJ9S97BPnA1_zkk3VYtCqPYOiBG0TVpSH3ySk4nXIAcZZW13_Zu_GsJ5D1ufDgeHSsmPapoi9bdZa8Ad2CODPkG2J2o-w/s579/Capturar.JPG" alt="Velocidade e aceleração"></div>
+        </div>
+      </article>
+
+      <!-- Card 7: Aceleração -->
       <article class="card" id="aceleracao">
         <div class="card-header">
           <div class="card-icon">
@@ -678,15 +759,21 @@
           </div>
         </div>
         <div class="card-content">
+          <p><strong>Resumo por tópicos:</strong></p>
           <p>Relação entre força resultante, massa e aceleração.</p>
           <p>Aceleração é a variação da velocidade com o tempo.</p>
+          <ul>
+            <li><strong>Aceleração:</strong> <span class="math">a = Δv/Δt</span></li>
+            <li><strong>Força resultante:</strong> <span class="math">F<sub>res</sub> = m·a</span></li>
+            <li><strong>Unidade:</strong> m/s²</li>
+          </ul>
         </div>
         <div class="card-images">
           <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqaUmu6HAVtxFHa8IdF6y_lqR_zEXa3Ylyueg3h6Z3Vgw08kxG_FCawR-dxpgAyjKnwEORR1CP3Mm2R4g3p5egq23CdsQv-XzUJ9S97BPnA1_zkk3VYtCqPYOiBG0TVpSH3ySk4nXIAcZZW13_Zu_GsJ5D1ufDgeHSsmPapoi9bdZa8Ad2CODPkG2J2o-w/s579/Capturar.JPG" alt="Diagrama de forças"></div>
         </div>
       </article>
 
-      <!-- Card 6: Leis de Newton -->
+      <!-- Card 8: Leis de Newton -->
       <article class="card" id="newton">
         <div class="card-header">
           <div class="card-icon">
@@ -700,15 +787,71 @@
           </div>
         </div>
         <div class="card-content">
+          <p><strong>Resumo por tópicos:</strong></p>
           <ul>
-            <li><strong>1ª:</strong> Inércia — repouso ou movimento constante.</li>
-            <li><strong>2ª:</strong> <span class="math">F = m·a</span> (unidade: N).</li>
-            <li><strong>3ª:</strong> Ação e reação são opostas e simultâneas.</li>
+            <li><strong>1ª Lei (Inércia):</strong> Repouso ou movimento constante</li>
+            <li><strong>2ª Lei:</strong> <span class="math">F = m·a</span> (unidade: N)</li>
+            <li><strong>3ª Lei:</strong> Ação e reação são opostas e simultâneas</li>
           </ul>
         </div>
         <div class="card-images">
           <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiConpsG8kmPSxdJN2vrmfm0J8SO9bt1Tz59q2YZx7rmARBTRHbQNjjxLDBxAUDKaNbIpCnc1Nibt-Bqrcc-zbjEmv7uUm7T0kcb_xLF0ctNWu2ac9d_1seB604_ECJE0hV-XLMUw_15Je71a4xK-qRoW2ZsPb24Vk4qRR4u_Q-LioGZQhy3YwTi8vJuFtQ/s529/Torre%20Pisa.JPG" alt="Lei da Gravitação"></div>
           <div class="card-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GodfreyKneller-IsaacNewton-1689.jpg/240px-GodfreyKneller-IsaacNewton-1689.jpg" alt="Isaac Newton"></div>
+        </div>
+      </article>
+
+      <!-- Card 9: Mapa Conceitual - Leis de Newton -->
+      <article class="card" id="mapa-newton">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">Mapa Conceitual</div>
+            <div class="card-subtitle">Leis de Newton</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <p><strong>Relações entre conceitos:</strong></p>
+          <ul>
+            <li><strong>1ª Lei (Inércia):</strong> Fundamenta as outras leis</li>
+            <li><strong>2ª Lei (F=ma):</strong> Relaciona força e aceleração</li>
+            <li><strong>3ª Lei (Ação-Reação):</strong> Explica interações</li>
+            <li><strong>Força Resultante:</strong> Determina aceleração</li>
+            <li><strong>Massa:</strong> Mede inércia</li>
+          </ul>
+        </div>
+        <div class="card-images">
+          <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiConpsG8kmPSxdJN2vrmfm0J8SO9bt1Tz59q2YZx7rmARBTRHbQNjjxLDBxAUDKaNbIpCnc1Nibt-Bqrcc-zbjEmv7uUm7T0kcb_xLF0ctNWu2ac9d_1seB604_ECJE0hV-XLMUw_15Je71a4xK-qRoW2ZsPb24Vk4qRR4u_Q-LioGZQhy3YwTi8vJuFtQ/s529/Torre%20Pisa.JPG" alt="Leis de Newton"></div>
+        </div>
+      </article>
+
+      <!-- Card 10: Questões -->
+      <article class="card" id="questoes">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">Todas as Questões</div>
+            <div class="card-subtitle">Exercícios de todos os temas</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Resolva todas as questões sobre o estudo dos movimentos.</p>
+          <ul>
+            <li>Questões de múltipla escolha</li>
+            <li>Inclui imagens para análise</li>
+            <li>Avalie seu conhecimento</li>
+          </ul>
+        </div>
+        <div class="card-images">
+          <div class="card-image"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrL045twSTsa8urMG05bJDi_0dfoXaXiIIluR8KkXzkMoHxOytSYjPRT-huiuYt2Dqz_nDzrX6IUgrkEk1dJpxxI7UfmKmMu7BYGPLzHaXOYuYNhyphenhyphenHei_IBkjYcnbQWcJYUVTWk8xYFSnR6Pw4dVPgjoM23afS2oZjdp2996fOFsGTvQQQjrcwUXeyhO3n/s318/Velocimetro.jpeg" alt="Questões"></div>
         </div>
       </article>
     </section>
@@ -922,6 +1065,23 @@
           }
         ]
       },
+      "mapa-conceitual": {
+        title: "Mapa Conceitual - Conceitos Fundamentais",
+        subtitle: "Relações entre conceitos básicos",
+        summary: `
+          <p>O estudo do movimento pode ser organizado através de um mapa conceitual que relaciona os principais conceitos:</p>
+          <ul>
+            <li><strong>Movimento:</strong> Conceito central que envolve mudança de posição</li>
+            <li><strong>Cinemática:</strong> Ramo que descreve o movimento sem considerar suas causas</li>
+            <li><strong>Dinâmica:</strong> Ramo que explica as causas do movimento através das forças</li>
+            <li><strong>Referencial:</strong> Ponto de observação necessário para definir movimento ou repouso</li>
+            <li><strong>Trajetória:</strong> Caminho percorrido por um corpo em movimento</li>
+            <li><strong>Posição:</strong> Localização de um corpo em relação a um referencial</li>
+          </ul>
+          <p>Estes conceitos formam a base para o estudo mais aprofundado da física do movimento.</p>
+        `,
+        questions: []
+      },
       "dist-desloc": {
         title: "Distância e Deslocamento",
         subtitle: "Espaço percorrido vs variação de posição",
@@ -1012,6 +1172,23 @@
           }
         ]
       },
+      "mapa-vel-acel": {
+        title: "Mapa Conceitual - Velocidade e Aceleração",
+        subtitle: "Relações entre conceitos de variação",
+        summary: `
+          <p>Este mapa conceitual explora as relações entre velocidade, aceleração e os tipos de movimento:</p>
+          <ul>
+            <li><strong>Velocidade:</strong> Mede a variação da posição com o tempo</li>
+            <li><strong>Aceleração:</strong> Mede a variação da velocidade com o tempo</li>
+            <li><strong>MRU (Movimento Retilíneo Uniforme):</strong> Movimento com velocidade constante</li>
+            <li><strong>MRUV (Movimento Retilíneo Uniformemente Variado):</strong> Movimento com aceleração constante</li>
+            <li><strong>Força:</strong> É a causa da aceleração, conforme a Segunda Lei de Newton</li>
+            <li><strong>Massa:</strong> Determina a resistência à mudança de velocidade (inércia)</li>
+          </ul>
+          <p>Estas relações formam a base para a compreensão da dinâmica dos movimentos.</p>
+        `,
+        questions: []
+      },
       "aceleracao": {
         title: "Aceleração e Forças",
         subtitle: "<span class=\"math\">a = ΔV / Δt</span> — <span class=\"math\">F = m·a</span>",
@@ -1099,6 +1276,40 @@
             points: 1.67
           }
         ]
+      },
+      "mapa-newton": {
+        title: "Mapa Conceitual - Leis de Newton",
+        subtitle: "Relações entre as três leis",
+        summary: `
+          <p>As três leis de Newton formam um sistema interconectado que explica a dinâmica dos corpos:</p>
+          <ul>
+            <li><strong>1ª Lei (Inércia):</strong> Fundamenta as outras leis, definindo o estado natural dos corpos</li>
+            <li><strong>2ª Lei (F=ma):</strong> Estabelece a relação quantitativa entre força e movimento</li>
+            <li><strong>3ª Lei (Ação-Reação):</strong> Explica a natureza das interações entre corpos</li>
+            <li><strong>Força Resultante:</strong> É o conceito central que determina a aceleração de um corpo</li>
+            <li><strong>Massa:</strong> Mede a inércia do corpo, sua resistência à mudança de movimento</li>
+          </ul>
+          <p>Estas leis formam a base da mecânica clássica e são aplicáveis à maioria dos fenômenos do cotidiano.</p>
+        `,
+        questions: []
+      },
+      "questoes": {
+        title: "Todas as Questões",
+        subtitle: "Exercícios de todos os temas",
+        summary: `
+          <p>Este questionário reúne todas as questões sobre o estudo dos movimentos.</p>
+          <p>Resolva as questões para testar seu conhecimento sobre:</p>
+          <ul>
+            <li>História do conceito de movimento</li>
+            <li>Cinemática</li>
+            <li>Distância e deslocamento</li>
+            <li>Velocidade</li>
+            <li>Aceleração e forças</li>
+            <li>Leis de Newton</li>
+          </ul>
+          <p>Boa sorte!</p>
+        `,
+        questions: []
       }
     };
 
@@ -1229,23 +1440,37 @@
       // Limpar questões anteriores
       questionsContainer.innerHTML = '';
       
-      // Adicionar questões ao modal
-      content.questions.forEach((question, index) => {
-        const questionElement = document.createElement('div');
-        questionElement.className = 'question';
-        questionElement.innerHTML = `
-          <p class="question-text">${index + 1}. ${question.question} <span style="color: var(--primary-light); font-size: 0.9rem;">(${question.points} pontos)</span></p>
-          <div class="options">
-            ${question.options.map((option, optIndex) => `
-              <label class="option">
-                <input type="radio" name="question${index}" value="${optIndex}" required>
-                ${option}
-              </label>
-            `).join('')}
-          </div>
-        `;
-        questionsContainer.appendChild(questionElement);
-      });
+      // Verificar se é o card de todas as questões
+      if (cardId === 'questoes') {
+        // Juntar todas as questões de todos os temas
+        let allQuestions = [];
+        let questionNumber = 1;
+        
+        for (const topic in cardContent) {
+          if (topic !== 'questoes' && cardContent[topic].questions.length > 0) {
+            // Adicionar um cabeçalho para o tema
+            const themeHeader = document.createElement('h4');
+            themeHeader.textContent = cardContent[topic].title;
+            themeHeader.style.marginTop = '20px';
+            themeHeader.style.marginBottom = '15px';
+            themeHeader.style.color = 'var(--primary-light)';
+            questionsContainer.appendChild(themeHeader);
+            
+            // Adicionar questões do tema
+            cardContent[topic].questions.forEach((question, index) => {
+              const questionElement = createQuestionElement(question, questionNumber);
+              questionsContainer.appendChild(questionElement);
+              questionNumber++;
+            });
+          }
+        }
+      } else {
+        // Adicionar questões específicas do tema ao modal
+        content.questions.forEach((question, index) => {
+          const questionElement = createQuestionElement(question, index);
+          questionsContainer.appendChild(questionElement);
+        });
+      }
       
       // Limpar display de pontuação
       scoreDisplay.textContent = '';
@@ -1266,14 +1491,53 @@
       });
     }
 
+    // Criar elemento de questão
+    function createQuestionElement(question, index) {
+      const questionElement = document.createElement('div');
+      questionElement.className = 'question';
+      
+      // Adicionar imagem se disponível
+      let imageHTML = '';
+      if (question.image) {
+        imageHTML = `<div class="question-image"><img src="${question.image}" alt="Imagem da questão ${index + 1}"></div>`;
+      }
+      
+      questionElement.innerHTML = `
+        <p class="question-text">${index + 1}. ${question.question} <span style="color: var(--primary-light); font-size: 0.9rem;">(${question.points} pontos)</span></p>
+        ${imageHTML}
+        <div class="options">
+          ${question.options.map((option, optIndex) => `
+            <label class="option">
+              <input type="radio" name="question${index}" value="${optIndex}" required>
+              ${option}
+            </label>
+          `).join('')}
+        </div>
+      `;
+      
+      return questionElement;
+    }
+
     // Calcular pontuação
     function calculateScore() {
-      const content = cardContent[currentCardId];
+      let questions = [];
+      
+      if (currentCardId === 'questoes') {
+        // Juntar todas as questões de todos os temas
+        for (const topic in cardContent) {
+          if (topic !== 'questoes') {
+            questions = questions.concat(cardContent[topic].questions);
+          }
+        }
+      } else {
+        questions = cardContent[currentCardId].questions;
+      }
+      
       let score = 0;
-      let totalQuestions = content.questions.length;
+      let totalQuestions = questions.length;
       
       // Verificar respostas
-      content.questions.forEach((question, index) => {
+      questions.forEach((question, index) => {
         const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
         
         if (selectedOption && parseInt(selectedOption.value) === question.correct) {
